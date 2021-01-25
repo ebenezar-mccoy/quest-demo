@@ -5,6 +5,7 @@ workflows:
   plan:
     jobs:
       - terraform/init:
+          workspace_root: terraform
           filters:
             branches:
               only:
