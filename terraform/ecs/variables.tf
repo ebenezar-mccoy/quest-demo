@@ -1,6 +1,18 @@
-variable "vpc-security-group-ids" { type = any }
-variable "vpc_zone_identifier" { type = any }
+variable "vpc-security-group-ids" {
+  type    = list(string)
+  default = []
+}
+
 variable "subnets" { type = any }
-variable "vpc_id" { type = any }
-variable "secret_word" { type = any }
-variable "name" { type = any }
+
+variable "vpc-id" {
+  type = string
+}
+
+variable "name" {
+  type = string
+}
+
+variable "node-server-public-ip" {
+  type = string 
+}

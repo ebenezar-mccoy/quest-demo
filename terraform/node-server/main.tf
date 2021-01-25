@@ -41,8 +41,3 @@ resource "null_resource" "wait_for_node" {
     ]
   }
 }
-
-data "http" "secret" {
-  url = "http://${aws_eip.quest-demo-node-server-eip.public_ip}:3000"
-  depends_on = [null_resource.wait_for_node]
-}

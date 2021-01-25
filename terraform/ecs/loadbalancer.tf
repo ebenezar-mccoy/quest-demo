@@ -10,7 +10,7 @@ resource "aws_lb_target_group" "target_group" {
   port        = 3000
   protocol    = "HTTP"
   target_type = "ip"
-  vpc_id      = var.vpc_id
+  vpc_id      = var.vpc-id
 }
 
 resource "aws_lb_listener" "listener" {

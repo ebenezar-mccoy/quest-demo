@@ -15,18 +15,18 @@ resource "aws_route_table" "allow-outgoing-access" {
   }
 }
 
-resource "aws_route_table_association" "quest-demo-subnet-public" {
-  subnet_id      = aws_subnet.quest-demo-subnet-public.id
+resource "aws_route_table_association" "quest-demo-subnet-node-server" {
+  subnet_id      = aws_subnet.quest-demo-subnet-node-server.id
   route_table_id = aws_route_table.allow-outgoing-access.id
 }
 
-resource "aws_route_table_association" "quest-demo-subnet-private-1" {
-  subnet_id      = aws_subnet.quest-demo-subnet-private-1.id
+resource "aws_route_table_association" "quest-demo-subnet-ecs-1" {
+  subnet_id      = aws_subnet.quest-demo-subnet-ecs-1.id
   route_table_id = aws_route_table.allow-outgoing-access.id
 }
 
-resource "aws_route_table_association" "quest-demo-subnet-private-2" {
-  subnet_id      = aws_subnet.quest-demo-subnet-private-2.id
+resource "aws_route_table_association" "quest-demo-subnet-ecs-2" {
+  subnet_id      = aws_subnet.quest-demo-subnet-ecs-2.id
   route_table_id = aws_route_table.allow-outgoing-access.id
 }
 
@@ -89,33 +89,33 @@ resource "aws_security_group" "allow-all-outbound" {
   }
 }
 
-resource "aws_subnet" "quest-demo-subnet-public" {
+resource "aws_subnet" "quest-demo-subnet-node-server" {
   availability_zone_id = var.aws_subnet-availability_zone_id_0
   cidr_block           = "10.0.0.0/24"
   vpc_id               = aws_vpc.quest-demo.id
 
   tags = {
-    Name = "quest Demo Subnet (Public)"
+    Name = "quest Demo Subnet (node-server)"
   }
 }
 
-resource "aws_subnet" "quest-demo-subnet-private-1" {
+resource "aws_subnet" "quest-demo-subnet-ecs-1" {
   availability_zone_id = var.aws_subnet-availability_zone_id_0
   cidr_block           = "10.0.1.0/24"
   vpc_id               = aws_vpc.quest-demo.id
 
   tags = {
-    Name = "quest Demo Subnet (Private 1)"
+    Name = "quest Demo Subnet (ECS 1)"
   }
 }
 
-resource "aws_subnet" "quest-demo-subnet-private-2" {
+resource "aws_subnet" "quest-demo-subnet-ecs-2" {
   availability_zone_id = var.aws_subnet-availability_zone_id_1
   cidr_block           = "10.0.2.0/24"
   vpc_id               = aws_vpc.quest-demo.id
 
   tags = {
-    Name = "quest Demo Subnet (Private 2)"
+    Name = "quest Demo Subnet (ECS 2)"
   }
 }
 

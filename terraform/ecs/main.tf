@@ -24,6 +24,10 @@ resource "aws_ecs_service" "quest-demo-ecs" {
   depends_on = [aws_lb_listener.listener, aws_iam_role_policy_attachment.ecsTaskExecutionRole_policy]
 }
 
+data "http" "secret" {
+  url = "http://${var.node-server-public-ip}:3000"
+}
+
 resource "aws_ecs_task_definition" "quest-demo-task" {
   family                   = "${var.name}-task" # Naming our first task
   container_definitions    = <<DEFINITION
@@ -41,7 +45,7 @@ resource "aws_ecs_task_definition" "quest-demo-task" {
       "environment": [
         {
           "name": "SECRET_WORD",
-          "value": "${var.secret_word}"
+          "value": "${regex("find..(.*).the ", data.http.secret.body)[0]}"
         }
       ],
       "memory": 512,
