@@ -12,4 +12,8 @@ workflows:
       - terraform/plan:
           requires:
             - terraform/init
+      - approval:
+          requires:
+            - terraform/plan
+          type: approval
             
