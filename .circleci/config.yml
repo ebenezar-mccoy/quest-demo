@@ -5,13 +5,15 @@ workflows:
   plan:
     jobs:
       - terraform/init:
+          args: terraform
+          context: quest-demo
           filters:
             branches:
               only:
                 - circleci-project-setup
       - terraform/plan:
-          context: quest-demo
           args: terraform
+          context: quest-demo
           requires:
             - terraform/init
             
