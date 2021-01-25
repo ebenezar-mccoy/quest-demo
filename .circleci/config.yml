@@ -5,20 +5,13 @@ workflows:
   plan:
     jobs:
       - terraform/init:
-          workspace_root: terraform
           filters:
             branches:
               only:
                 - circleci-project-setup
       - terraform/plan:
-          workspace_root: terraform
           context: quest-demo
+          args: terraform
           requires:
             - terraform/init
-      - approval:
-          workspace_root: terraform
-          context: quest-demo
-          requires:
-            - terraform/plan
-          type: approval
             
