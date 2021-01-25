@@ -8,7 +8,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - circleci-project-setup
       - terraform/plan:
           requires:
             - terraform/init
