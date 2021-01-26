@@ -15,6 +15,7 @@ module "quest-demo-ecs" {
   source = "./ecs"
   name                   = "quest-demo-ecs"
   vpc-id                 = aws_vpc.quest-demo.id
+  desired_count          = 2
   subnets                = [
     aws_subnet.quest-demo-subnet-ecs-1.id,
     aws_subnet.quest-demo-subnet-ecs-2.id

@@ -3,7 +3,14 @@ variable "vpc-security-group-ids" {
   default = []
 }
 
-variable "subnets" { type = any }
+variable "desired_count" {
+  type = number
+}
+
+variable "subnets" {
+  type    = list(string)
+  default = []
+}
 
 variable "vpc-id" {
   type = string
@@ -14,5 +21,5 @@ variable "name" {
 }
 
 variable "node-server-public-ip" {
-  type = string 
+  type = string
 }

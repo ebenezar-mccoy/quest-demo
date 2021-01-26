@@ -7,7 +7,7 @@ resource "aws_ecs_service" "quest-demo-ecs" {
   cluster         = aws_ecs_cluster.quest-demo-ecs.id
   task_definition = aws_ecs_task_definition.quest-demo-task.arn
   launch_type     = "FARGATE"
-  desired_count   = 1
+  desired_count   = var.desired_count
 
   load_balancer {
     target_group_arn = aws_lb_target_group.target_group.arn
