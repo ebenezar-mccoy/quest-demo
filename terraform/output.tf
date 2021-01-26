@@ -1,5 +1,5 @@
 output "quest-demo-node-server" {
-  value =  "http://${module.quest-demo-node-server.public_ip}:3000" 
+  value = "http://${module.quest-demo-node-server.public_ip}:3000"
 }
 
 output "quest-demo-ecs-alb" {

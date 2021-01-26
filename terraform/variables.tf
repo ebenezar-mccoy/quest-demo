@@ -13,6 +13,6 @@ variable "aws_subnet-availability_zone_id_0" {
 }
 
 variable "aws_subnet-availability_zone_id_1" {
-  type = string
+  type    = string
   default = "use1-az4"
 }

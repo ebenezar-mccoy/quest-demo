@@ -1,5 +1,5 @@
 provider "aws" {
-  region     = var.aws-region
+  region = var.aws-region
 }
 
 resource "aws_key_pair" "quest-demo-key" {
@@ -9,7 +9,7 @@ resource "aws_key_pair" "quest-demo-key" {
 
 terraform {
   backend "s3" {
-    bucket     = "quest-demo-tf"
-    key        = "terraform.tfstate"
+    bucket = "quest-demo-tf"
+    key    = "terraform.tfstate"
   }
 }

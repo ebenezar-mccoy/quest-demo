@@ -1,3 +1,1 @@
-aws-access-key               = ""
-aws-secret-key               = ""
-ssh-public-key               = ""
+ssh-public-key = ""
