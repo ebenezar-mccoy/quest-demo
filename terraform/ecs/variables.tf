@@ -7,7 +7,12 @@ variable "desired_count" {
   type = number
 }
 
-variable "subnets" {
+variable "ecs-subnets" {
+  type    = list(string)
+  default = []
+}
+
+variable "lb-subnets" {
   type    = list(string)
   default = []
 }

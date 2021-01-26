@@ -30,6 +30,16 @@ resource "aws_route_table_association" "quest-demo-subnet-ecs-2" {
   route_table_id = aws_route_table.allow-outgoing-access.id
 }
 
+resource "aws_route_table_association" "quest-demo-subnet-lb-1" {
+  subnet_id      = aws_subnet.quest-demo-subnet-lb-1.id
+  route_table_id = aws_route_table.allow-outgoing-access.id
+}
+
+resource "aws_route_table_association" "quest-demo-subnet-lb-2" {
+  subnet_id      = aws_subnet.quest-demo-subnet-lb-2.id
+  route_table_id = aws_route_table.allow-outgoing-access.id
+}
+
 resource "aws_security_group" "allow-internal-http" {
   name        = "allow-internal-http"
   description = "Allow internal HTTP requests"
@@ -116,6 +126,26 @@ resource "aws_subnet" "quest-demo-subnet-ecs-2" {
 
   tags = {
     Name = "quest Demo Subnet (ECS 2)"
+  }
+}
+
+resource "aws_subnet" "quest-demo-subnet-lb-1" {
+  availability_zone_id = var.aws_subnet-availability_zone_id_0
+  cidr_block           = "10.0.3.0/24"
+  vpc_id               = aws_vpc.quest-demo.id
+
+  tags = {
+    Name = "quest Demo Subnet (LB 1)"
+  }
+}
+
+resource "aws_subnet" "quest-demo-subnet-lb-2" {
+  availability_zone_id = var.aws_subnet-availability_zone_id_1
+  cidr_block           = "10.0.4.0/24"
+  vpc_id               = aws_vpc.quest-demo.id
+
+  tags = {
+    Name = "quest Demo Subnet (LB 2)"
   }
 }
 

@@ -1,8 +1,8 @@
 resource "aws_alb" "application_load_balancer" {
   name               = "${var.name}-lb"
   load_balancer_type = "application"
-  subnets = var.subnets
-  security_groups = var.vpc-security-group-ids
+  subnets            = var.lb-subnets
+  security_groups    = var.vpc-security-group-ids
 }
 
 resource "aws_lb_target_group" "target_group" {

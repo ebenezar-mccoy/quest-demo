@@ -16,7 +16,7 @@ resource "aws_ecs_service" "quest-demo-ecs" {
   }
 
   network_configuration {
-    subnets          = var.subnets
+    subnets          = var.ecs-subnets
     assign_public_ip = true
     security_groups  = var.vpc-security-group-ids
   }
