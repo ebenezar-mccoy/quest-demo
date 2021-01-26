@@ -11,9 +11,17 @@ workflows:
             branches:
               only:
                 - circleci-project-setup
+      - terraform/fmt:
+          args: terraform
+          requires:
+            - terraform/init
+      - terraform/validate:
+          args: terraform
+          requires:
+            - terraform/init
       - terraform/plan:
           args: terraform
           context: quest-demo
           requires:
             - terraform/init
-            
+
