@@ -7,9 +7,8 @@ resource "tls_self_signed_cert" "cert" {
   key_algorithm = "RSA"
   private_key_pem = tls_private_key.key.private_key_pem
 
-  validity_period_hours = 12
-
-  early_renewal_hours = 3
+  validity_period_hours = 8760 # one year
+  early_renewal_hours   = 8040 # one month earlier
 
   set_subject_key_id = true
 
