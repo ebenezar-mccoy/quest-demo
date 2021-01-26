@@ -1,0 +1,21 @@
+[
+  {
+    "name": "${task_name}",
+    "image": "ebenezar/quest-demo",
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 3000,
+        "hostPort": 3000
+      }
+    ],
+    "environment": [
+      {
+        "name": "SECRET_WORD",
+        "value": "${secret_word}"
+      }
+    ],
+    "memory": 512,
+    "cpu": 256
+  }
+]
