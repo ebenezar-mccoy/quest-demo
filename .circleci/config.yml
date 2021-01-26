@@ -11,6 +11,7 @@ workflows:
             branches:
               only:
                 - circleci-project-setup
+                - master
       - terraform/fmt:
           args: terraform
           requires:
